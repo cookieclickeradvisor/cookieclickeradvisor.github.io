@@ -26,15 +26,39 @@
     <meta name="twitter:image" content="cca_screenshot.webp">
     <meta name="twitter:image:alt" content="Cookie Clicker Advisor Screenshot">
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Add image dimensions to prevent CLS -->
+    <meta name="twitter:image:width" content="1200">
+    <meta name="twitter:image:height" content="630">
     
-    <!-- Font Merriweather -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Existing CSS links but with media attribute -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          media="print" 
+          onload="this.media='all'">
     
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          media="print" 
+          onload="this.media='all'">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+          rel="stylesheet"
+          media="print" 
+          onload="this.media='all'">
+
+    <!-- Add fallback for users with JS disabled -->
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    </noscript>
+
     <style>
         /* Global dark theme - keep Bootstrap padding and spacing */
         .dark-theme {
@@ -593,6 +617,7 @@
     </style>
 </head>
 <body class="dark-theme">
+  
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
@@ -630,7 +655,7 @@
                         </a>
                     </li>
                 </ul>
-                <a href="https://chrome.google.com/webstore/detail/xxx" class="btn btn-custom">
+                <a href="https://chrome.google.com/webstore/detail/[your-extension-id]" class="btn btn-custom">
                     <i class="fab fa-chrome me-2"></i>Install
                 </a>
             </div>
@@ -642,7 +667,7 @@
         <div class="container text-center">
             <h1 class="display-4 mb-4">Cookie Clicker Advisor</h1>
             <p class="lead mb-4">Your intelligent assistant for maximizing Cookie Clicker gameplay</p>
-            <a href="https://chrome.google.com/webstore/detail/xxx" class="btn btn-custom btn-lg">
+            <a href="https://chrome.google.com/webstore/detail/[your-extension-id]" class="btn btn-custom btn-lg">
                 <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" alt="Chrome" class="chrome-logo">
                 Add to Chrome - It's Free
             </a>
@@ -866,10 +891,10 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Defer non-critical scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Add this JavaScript before closing body tag -->
+    <!-- Existing script with performance improvements -->
     <script>
         // Close all other FAQs and toggle clicked one
         function toggleFaq(element) {
@@ -924,6 +949,16 @@
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Add performance monitoring
+        if (window.performance) {
+            const timing = window.performance.timing;
+            window.addEventListener('load', () => {
+                // Monitor page load performance
+                const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
+                console.log('Page load time:', pageLoadTime);
+            });
+        }
     </script>
 </body>
 </html>
