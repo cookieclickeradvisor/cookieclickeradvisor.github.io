@@ -70,7 +70,80 @@
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     </noscript>
 
+    <!-- Add font preload before other resources -->
+    <link rel="preload" 
+          href="https://fonts.gstatic.com/s/merriweather/v30/u-440qyriQwlOrhSvowK_l5-fCZM.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin>
+    <link rel="preload" 
+          href="https://fonts.gstatic.com/s/merriweather/v30/u-4n0qyriQwlOrhSvowK_l52xwNpWg.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin>
+
     <style>
+        /* Font loading optimization */
+        @font-face {
+            font-family: 'Merriweather';
+            font-style: normal;
+            font-weight: 400;
+            font-display: optional;
+            src: local('Merriweather Regular'),
+                 local('Merriweather-Regular'),
+                 url(https://fonts.gstatic.com/s/merriweather/v30/u-440qyriQwlOrhSvowK_l5-fCZM.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Merriweather';
+            font-style: normal;
+            font-weight: 700;
+            font-display: optional;
+            src: local('Merriweather Bold'),
+                 local('Merriweather-Bold'),
+                 url(https://fonts.gstatic.com/s/merriweather/v30/u-4n0qyriQwlOrhSvowK_l52xwNpWg.woff2) format('woff2');
+        }
+
+        /* Add a system font fallback stack */
+        body {
+            font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+        }
+
+        /* Add font-size-adjust to maintain consistent layout during font load */
+        .dark-theme {
+            font-size-adjust: 0.5;
+            background: url('https://cookieclicker.me/img/bgBlue.webp');
+            color: #fff;
+        }
+
+        /* Pre-define space for dynamic content */
+        .hero-section {
+            min-height: calc(400px + 2rem); /* Account for font metrics */
+            contain: layout;
+        }
+
+        .content-section {
+            contain: layout;
+        }
+
+        /* Ensure consistent button sizing */
+        .btn-custom {
+            min-height: 44px;
+            min-width: 120px;
+            contain: layout;
+        }
+
+        /* Add containment to prevent layout shifts */
+        .navbar-brand {
+            contain: layout;
+            min-width: 200px; /* Adjust based on your content */
+        }
+
+        .nav-link {
+            contain: layout;
+            min-width: 100px; /* Adjust based on your content */
+        }
+
         /* Global dark theme - keep Bootstrap padding and spacing */
         .dark-theme {
             background: url('https://cookieclicker.me/img/bgBlue.webp');
