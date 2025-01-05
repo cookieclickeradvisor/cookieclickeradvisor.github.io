@@ -26,124 +26,21 @@
     <meta name="twitter:image" content="cca_screenshot.webp">
     <meta name="twitter:image:alt" content="Cookie Clicker Advisor Screenshot">
     
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Add image dimensions to prevent CLS -->
-    <meta name="twitter:image:width" content="1200">
-    <meta name="twitter:image:height" content="630">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Existing CSS links but with media attribute -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-          rel="stylesheet" 
-          media="print" 
-          onload="this.media='all'">
+    <!-- Font Merriweather -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          media="print" 
-          onload="this.media='all'">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
     
-    <link rel="preload" 
-          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
-          as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
-              rel="stylesheet">
-    </noscript>
-
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="CCA" />
-    <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- Add fallback for users with JS disabled -->
-    <noscript>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    </noscript>
-
-    <!-- Add font preload before other resources -->
-    <link rel="preload" 
-          href="https://fonts.gstatic.com/s/merriweather/v30/u-440qyriQwlOrhSvowK_l5-fCZM.woff2"
-          as="font"
-          type="font/woff2"
-          crossorigin>
-    <link rel="preload" 
-          href="https://fonts.gstatic.com/s/merriweather/v30/u-4n0qyriQwlOrhSvowK_l52xwNpWg.woff2"
-          as="font"
-          type="font/woff2"
-          crossorigin>
-
     <style>
-        /* Font loading optimization */
-        @font-face {
-            font-family: 'Merriweather';
-            font-style: normal;
-            font-weight: 400;
-            font-display: optional;
-            src: local('Merriweather Regular'),
-                 local('Merriweather-Regular'),
-                 url(https://fonts.gstatic.com/s/merriweather/v30/u-440qyriQwlOrhSvowK_l5-fCZM.woff2) format('woff2');
-        }
-
-        @font-face {
-            font-family: 'Merriweather';
-            font-style: normal;
-            font-weight: 700;
-            font-display: optional;
-            src: local('Merriweather Bold'),
-                 local('Merriweather-Bold'),
-                 url(https://fonts.gstatic.com/s/merriweather/v30/u-4n0qyriQwlOrhSvowK_l52xwNpWg.woff2) format('woff2');
-        }
-
-        /* Add a system font fallback stack */
-        body {
-            font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
-        }
-
-        /* Add font-size-adjust to maintain consistent layout during font load */
-        .dark-theme {
-            font-size-adjust: 0.5;
-            background: url('https://cookieclicker.me/img/bgBlue.webp');
-            color: #fff;
-        }
-
-        /* Pre-define space for dynamic content */
-        .hero-section {
-            min-height: calc(400px + 2rem); /* Account for font metrics */
-            contain: layout;
-        }
-
-        .content-section {
-            contain: layout;
-        }
-
-        /* Ensure consistent button sizing */
-        .btn-custom {
-            min-height: 44px;
-            min-width: 120px;
-            contain: layout;
-        }
-
-        /* Add containment to prevent layout shifts */
-        .navbar-brand {
-            contain: layout;
-            min-width: 200px; /* Adjust based on your content */
-        }
-
-        .nav-link {
-            contain: layout;
-            min-width: 100px; /* Adjust based on your content */
-        }
-
         /* Global dark theme - keep Bootstrap padding and spacing */
         .dark-theme {
             background: url('https://cookieclicker.me/img/bgBlue.webp');
@@ -698,58 +595,9 @@
         .navbar.sticky-top.scrolled {
             box-shadow: 0 3px 10px rgba(0,0,0,0.5);
         }
-
-        /* Add explicit dimensions for fonts to prevent layout shifts */
-        @font-face {
-            font-family: 'Merriweather';
-            font-display: swap; /* Use swap to prevent FOIT */
-            size-adjust: 100%;
-            ascent-override: 90%;
-            descent-override: 10%;
-        }
-
-        /* Reserve space for web fonts to prevent layout shifts */
-        body {
-            padding-top: 71px; /* Keep existing navbar padding */
-            min-height: 100vh; /* Ensure minimum height */
-        }
-
-        /* Add explicit dimensions for images and media */
-        img, iframe, video {
-            aspect-ratio: attr(width) / attr(height);
-            width: 100%;
-            height: auto;
-        }
-
-        /* Add explicit height for hero section to prevent content jumps */
-        .hero-section {
-            min-height: 400px; /* Adjust based on your content */
-            display: flex;
-            align-items: center;
-        }
-
-        /* Ensure content sections have minimum heights */
-        .content-section {
-            min-height: 300px; /* Adjust based on your content */
-        }
-
-        /* Add explicit dimensions for the Chrome logo */
-        .chrome-logo {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-        }
-
-        /* Ensure testimonial avatars have fixed dimensions */
-        .testimonial-avatar {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-        }
     </style>
 </head>
 <body class="dark-theme">
-  
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
@@ -787,7 +635,7 @@
                         </a>
                     </li>
                 </ul>
-                <a href="https://chrome.google.com/webstore/detail/[your-extension-id]" class="btn btn-custom">
+                <a href="https://chrome.google.com/webstore/detail/xxx" class="btn btn-custom">
                     <i class="fab fa-chrome me-2"></i>Install
                 </a>
             </div>
@@ -799,8 +647,8 @@
         <div class="container text-center">
             <h1 class="display-4 mb-4">Cookie Clicker Advisor</h1>
             <p class="lead mb-4">Your intelligent assistant for maximizing Cookie Clicker gameplay</p>
-            <a href="https://chrome.google.com/webstore/detail/[your-extension-id]" class="btn btn-custom btn-lg">
-                <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" alt="Chrome" class="chrome-logo">
+            <a href="https://chrome.google.com/webstore/detail/xxx" class="btn btn-custom btn-lg">
+                <img src="https://www.google.com/chrome/static/images/chrome-logo.svg" alt="Chrome" class="chrome-logo" loading="lazy" width="32" height="32">
                 Add to Chrome - It's Free
             </a>
         </div>
@@ -858,7 +706,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="content-container">
-                        <img src="cca_screenshot.webp" alt="Cookie Clicker Advisor Screenshot" class="img-fluid rounded" width="800" height="600">
+                        <img src="cca_screenshot.webp" alt="Cookie Clicker Advisor Screenshot" class="img-fluid rounded" loading="lazy">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -882,7 +730,7 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="content-container">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar" class="testimonial-avatar" width="150" height="150">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar" class="testimonial-avatar" loading="lazy">
                         <h3>John Doe</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -896,7 +744,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="content-container">
-                        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="testimonial-avatar" width="150" height="150">
+                        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="testimonial-avatar" loading="lazy">
                         <h3>Sarah Smith</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -910,7 +758,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="content-container">
-                        <img src="https://i.pravatar.cc/150?img=3" alt="User Avatar" class="testimonial-avatar" width="150" height="150">
+                        <img src="https://i.pravatar.cc/150?img=3" alt="User Avatar" class="testimonial-avatar" loading="lazy">
                         <h3>Mike Johnson</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -1023,11 +871,11 @@
         </div>
     </footer>
 
-    <!-- Defer non-critical scripts -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
-    <!-- Existing script with performance improvements -->
-    <script>
+    <!-- Add this JavaScript before closing body tag -->
+    <script defer>
         // Close all other FAQs and toggle clicked one
         function toggleFaq(element) {
             const faqItem = element.closest('.faq-item');
@@ -1081,16 +929,9 @@
                 navbar.classList.remove('scrolled');
             }
         });
-
-        // Add performance monitoring
-        if (window.performance) {
-            const timing = window.performance.timing;
-            window.addEventListener('load', () => {
-                // Monitor page load performance
-                const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
-                console.log('Page load time:', pageLoadTime);
-            });
-        }
     </script>
+
+    <!-- Add this JavaScript before closing body tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
 </body>
 </html>
