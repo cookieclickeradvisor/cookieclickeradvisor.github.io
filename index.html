@@ -47,10 +47,14 @@
           media="print" 
           onload="this.media='all'">
     
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
-          rel="stylesheet"
-          media="print" 
-          onload="this.media='all'">
+    <link rel="preload" 
+          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+          as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+              rel="stylesheet">
+    </noscript>
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -621,6 +625,54 @@
         .navbar.sticky-top.scrolled {
             box-shadow: 0 3px 10px rgba(0,0,0,0.5);
         }
+
+        /* Add explicit dimensions for fonts to prevent layout shifts */
+        @font-face {
+            font-family: 'Merriweather';
+            font-display: swap; /* Use swap to prevent FOIT */
+            size-adjust: 100%;
+            ascent-override: 90%;
+            descent-override: 10%;
+        }
+
+        /* Reserve space for web fonts to prevent layout shifts */
+        body {
+            padding-top: 71px; /* Keep existing navbar padding */
+            min-height: 100vh; /* Ensure minimum height */
+        }
+
+        /* Add explicit dimensions for images and media */
+        img, iframe, video {
+            aspect-ratio: attr(width) / attr(height);
+            width: 100%;
+            height: auto;
+        }
+
+        /* Add explicit height for hero section to prevent content jumps */
+        .hero-section {
+            min-height: 400px; /* Adjust based on your content */
+            display: flex;
+            align-items: center;
+        }
+
+        /* Ensure content sections have minimum heights */
+        .content-section {
+            min-height: 300px; /* Adjust based on your content */
+        }
+
+        /* Add explicit dimensions for the Chrome logo */
+        .chrome-logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        /* Ensure testimonial avatars have fixed dimensions */
+        .testimonial-avatar {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body class="dark-theme">
@@ -733,7 +785,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="content-container">
-                        <img src="cca_screenshot.webp" alt="Cookie Clicker Advisor Screenshot" class="img-fluid rounded">
+                        <img src="cca_screenshot.webp" alt="Cookie Clicker Advisor Screenshot" class="img-fluid rounded" width="800" height="600">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -757,7 +809,7 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="content-container">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar" class="testimonial-avatar">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar" class="testimonial-avatar" width="150" height="150">
                         <h3>John Doe</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -771,7 +823,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="content-container">
-                        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="testimonial-avatar">
+                        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="testimonial-avatar" width="150" height="150">
                         <h3>Sarah Smith</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -785,7 +837,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="content-container">
-                        <img src="https://i.pravatar.cc/150?img=3" alt="User Avatar" class="testimonial-avatar">
+                        <img src="https://i.pravatar.cc/150?img=3" alt="User Avatar" class="testimonial-avatar" width="150" height="150">
                         <h3>Mike Johnson</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
